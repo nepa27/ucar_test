@@ -130,7 +130,7 @@ def get_reviews():
             )
 
         conn.close()
-        return jsonify(reviews, 200)
+        return jsonify(reviews)
 
     except Exception as e:
         return jsonify({'error': str(e)}), 500
