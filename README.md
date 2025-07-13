@@ -5,7 +5,7 @@
 ## Установка и запуск
 
 ```bash
-git clone <repository-url>
+git clone git@github.com:nepa27/ucar_test.git
 cd ucar_test
 
 pip install -r requirements.txt
