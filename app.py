@@ -24,6 +24,7 @@ NEGATIVE_WORDS = (
     'кошмар',
     'бред',
     'жесть',
+    'нехорош'
 )
 
 
@@ -47,15 +48,15 @@ def init_db():
 
 def analyze_sentiment(text: str) -> str:
     """Анализ настроения."""
-    text_lower = text.lower()
-
-    for word in POSITIVE_WORDS:
-        if word in text_lower:
-            return 'positive'
+    text_lower = text.lower().split()
 
     for word in NEGATIVE_WORDS:
-        if word in text_lower:
+        if any(w.startswith(word) for w in text_lower):
             return 'negative'
+
+    for word in POSITIVE_WORDS:
+        if any(w.startswith(word) for w in text_lower):
+            return 'positive'
 
     return 'neutral'
 
